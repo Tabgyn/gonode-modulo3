@@ -4,6 +4,7 @@ class AdController {
   async index (req, res) {
     const filters = {}
 
+    filters.purchasedBy = null
     if (req.query.price_min || req.query.price_max) {
       filters.price = {}
 
@@ -23,7 +24,7 @@ class AdController {
     const ads = await Ad.paginate(filters, {
       page: req.params.page || 1,
       limit: 20,
-      populate: ['author'],
+      populate: ['author', 'purchasedBy'],
       sort: '-createdAt'
     })
 

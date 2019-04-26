@@ -42,10 +42,13 @@ routes.delete('/ads/:id', handle(controllers.AdController.destroy))
 /**
  * Purchase
  */
+routes.get('/purchases', handle(controllers.PurchaseController.index))
 routes.post(
-  '/purchase',
+  '/purchases',
   validate(validators.Purchase),
   handle(controllers.PurchaseController.store)
 )
+routes.post('/purchases/:id', handle(controllers.PurchaseController.accept))
+routes.delete('/purchases/:id', handle(controllers.PurchaseController.destroy))
 
 module.exports = routes
