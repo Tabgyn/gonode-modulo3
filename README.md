@@ -1,3 +1,3 @@
-# Desafio 2
+# Desafio 3
 
-Aplicação desenvolvida para o módulo 2 do curso GoNode da Rockeatseat
+Aplicação desenvolvida para o módulo 3 do curso GoNode da Rockeatseat
