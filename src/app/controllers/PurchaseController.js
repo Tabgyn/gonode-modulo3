@@ -22,8 +22,10 @@ class PurchaseController {
   async store (req, res) {
     const { ad, content } = req.body
 
-    const purchaseAd = await Ad.findById(ad).populate('purchaseAd')
-    console.log(purchaseAd.purchasedBy)
+    const purchaseAd = await Ad.findById(ad)
+      .populate('author')
+      .populate('purchasedBy')
+
     if (purchaseAd.purchasedBy) {
       return res.status(400).json({ error: 'This ad was already purchased' })
     }
